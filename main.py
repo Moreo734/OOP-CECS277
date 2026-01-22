@@ -1,20 +1,16 @@
-# This is a sample Python script.
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import random
+import check_input
+
+shellNum = random.randint(1,3)
+wallet = 100
+sentinelCHar = "Y"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-<<<<<<< HEAD
-    print("agngfdsdfg")
-=======
-printf
->>>>>>> 005f7e057a3f0e74a8c253db6fb749a530dbc15c
-# This is the only edit I am making
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print("--Shell Game --")
+print("\nFind the ball to double your bet amount!")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+##loop will start around here
+while sentinelCHar == "Y":
+    print("\n\nYou have $" + str(wallet) + ".")
+
