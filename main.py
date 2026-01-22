@@ -24,7 +24,7 @@ shell_2= r"""
 shell_3= r"""
    ___     ___     ___
   /   \   /   \   /   \
- /     \ /     \ /  0  \
+ /     \ /     \ /  o  \
  ------- ------- -------
 """
 shells = {
@@ -39,7 +39,7 @@ print("Find the ball to double your bet amount!")
 ##loop will start around here
 while isRunning and wallet > 0:
     print("\nYou have $" + str(wallet) + ".")
-    bet = check_input.get_int_range("How much would you like to bet?", 0, int(wallet))
+    bet = check_input.get_int_range("How much would you like to bet?", 1, int(wallet))
 
     print(r"""
    ___     ___     ___
@@ -52,11 +52,14 @@ while isRunning and wallet > 0:
     print(shells[shellNum])
     if guessNum == shellNum:
         print("Congratulations! You won!")
-        wallet += bet*2
+        wallet += bet
     else:
         print("Sorry, you lost!")
         wallet -= bet
     shellNum = random.randint(1,3)
-if wallet == 0:
-    print("You're out of money! Game Over!")
-isRunning = check_input.get_yes_no("Do you want to play again? (Y/N) : ")
+    if wallet == 0:
+        print("You're out of money! Game Over!")
+        break
+
+
+    isRunning = check_input.get_yes_no("Do you want to play again? (Y/N) : ")
