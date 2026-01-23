@@ -8,7 +8,7 @@ wallet = 100
 isRunning = True
 guessNum = 1
 bet = 0
-
+#strings of all the ball possibilities along with a dictionary for them
 shell_1 = r"""
    ___     ___     ___
   /   \   /   \   /   \
@@ -36,7 +36,7 @@ shells = {
 print("--Shell Game --")
 print("Find the ball to double your bet amount!")
 
-##loop will start around here
+#loop here is the entirety of the game. Everytime the game ends it will start over from here
 while isRunning and wallet > 0:
     print("\nYou have $" + str(wallet) + ".")
     bet = check_input.get_int_range("How much would you like to bet?", 1, int(wallet))
@@ -50,6 +50,8 @@ while isRunning and wallet > 0:
 
     guessNum = check_input.get_int_range("Make a guess:", 1, 3)
     print(shells[shellNum])
+    #this if else statement determines whether the user guessed correctly or not
+    # it also deals with removing and adding money to the wallet
     if guessNum == shellNum:
         print("Congratulations! You won!")
         wallet += bet
@@ -57,6 +59,7 @@ while isRunning and wallet > 0:
         print("Sorry, you lost!")
         wallet -= bet
     shellNum = random.randint(1,3)
+    #final checks to see if the player has money and if they desire to play again
     if wallet == 0:
         print("You're out of money! Game Over!")
         break
