@@ -1,7 +1,6 @@
 
 import random
 import check_input
-from check_input import get_int_range
 
 shellNum = random.randint(1,3)
 wallet = 100
