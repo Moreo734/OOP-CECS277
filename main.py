@@ -1,4 +1,5 @@
-
+#Anthony Marcos
+#Gerald Stanfill
 import random
 import check_input
 
