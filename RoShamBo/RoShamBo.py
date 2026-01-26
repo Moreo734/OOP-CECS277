@@ -2,7 +2,16 @@ import check_input
 
 def weapon_menu():
     #This function will let the user select their weapon
-    print("Blank")
+    while True:
+        user_weapon = input("""Choose your Weapon: 
+        R.Rock
+        P.Paper
+        S.Scissors
+        B.Back
+        """).strip().upper()
+        if user_weapon in ("R", "P", "S", "B"):
+            return user_weapon
+        else: print("Invalid input. Please enter something else.")
 
 def comp_menu():
     #This function will decide the weapon that the computer will have
@@ -21,6 +30,10 @@ def main():
     menu_int = 0
     print("blank")
     while menu_int != 3:
+        user_weapon = ""
+        comp_weapon = ""
+        user_score = 0
+        comp_score = 0
         print(""" RPS Menu:
         1. Play game
         2. Show Score
