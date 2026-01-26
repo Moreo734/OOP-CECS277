@@ -1,4 +1,5 @@
 import check_input
+import random
 
 def weapon_menu():
     #This function will let the user select their weapon
@@ -15,11 +16,23 @@ def weapon_menu():
 
 def comp_menu():
     #This function will decide the weapon that the computer will have
-    print("blank")
+    wep_list = ["R", "P", "S"]
+    rand_num = random.randint(0, len(wep_list) - 1)
+    return wep_list[rand_num]
+
 
 def find_winner(p_wep, c_wep):
     #This function will decide whether the computer or the human won by comparing weapons
-    print("blank")
+    weapons = ("R", "P", "S")
+    logic = {
+        "R": "S"
+        "P": "R"
+        "S": "P"
+    }
+    if p_wep == c_wep:
+        return "Tie Nobody Wins"
+
+
 
 def display_scores(p_score, c_score):
     #This function will display the score of both the human and computer
@@ -42,8 +55,9 @@ def main():
         menu_int = check_input.get_int_range( low = 1, high =3)
         if menu_int == 1:
             weapon_menu()
-            comp_menu()
-            find_winner()
+            if user_weapon != "B":
+                comp_menu()
+                find_winner(user_weapon, comp_weapon)
 
         if menu_int == 2:
             display_scores()
