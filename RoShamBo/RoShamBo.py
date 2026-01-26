@@ -60,8 +60,13 @@ def main():
         if menu_int == 1:
             weapon_menu()
             if user_weapon != "B":
-               comp_weapon = comp_menu()
-               result_str, win_num = find_winner(user_weapon, comp_weapon)
+                comp_weapon = comp_menu()
+                result_str, win_num = find_winner(user_weapon, comp_weapon)
+                print(result_str)
+                if win_num == 1:
+                    user_score += 1
+                else:
+                    comp_score += 1
 
         if menu_int == 2:
             display_scores()
