@@ -24,13 +24,17 @@ def comp_menu():
 def find_winner(p_wep, c_wep):
     #This function will decide whether the computer or the human won by comparing weapons
     weapons = ("R", "P", "S")
-    logic = {
-        "R": "S"
-        "P": "R"
+    weapon_logic = {
+        "R": "S",
+        "P": "R",
         "S": "P"
     }
     if p_wep == c_wep:
-        return "Tie Nobody Wins"
+        return "Tie Nobody Wins", 0
+    elif weapon_logic[p_wep] == c_wep:
+        return "You Win!", 1
+    else:
+        return "You Lose! Computer Wins!", 0
 
 
 
@@ -56,8 +60,8 @@ def main():
         if menu_int == 1:
             weapon_menu()
             if user_weapon != "B":
-                comp_menu()
-                find_winner(user_weapon, comp_weapon)
+               comp_weapon = comp_menu()
+               result_str, win_num = find_winner(user_weapon, comp_weapon)
 
         if menu_int == 2:
             display_scores()
