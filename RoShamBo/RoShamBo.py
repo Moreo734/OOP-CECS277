@@ -34,23 +34,25 @@ def find_winner(p_wep, c_wep):
     elif weapon_logic[p_wep] == c_wep:
         return "You Win!", 1
     else:
-        return "You Lose! Computer Wins!", 0
+        return "You Lose! Computer Wins!", 2
 
 
 
 def display_scores(p_score, c_score):
     #This function will display the score of both the human and computer
-    print("blank")
+    print("User Score: ", p_score)
+    print("Computer Score: ", c_score)
 
 def main():
     #This is the main function. It will call all of the previous functions
     menu_int = 0
+    user_weapon = ""
+    comp_weapon = ""
+    user_score = 0
+    comp_score = 0
     print("blank")
     while menu_int != 3:
-        user_weapon = ""
-        comp_weapon = ""
-        user_score = 0
-        comp_score = 0
+
         print(""" RPS Menu:
         1. Play game
         2. Show Score
@@ -58,16 +60,18 @@ def main():
         """)
         menu_int = check_input.get_int_range( low = 1, high =3)
         if menu_int == 1:
-            weapon_menu()
+            user_weapon = weapon_menu()
             if user_weapon != "B":
                 comp_weapon = comp_menu()
                 result_str, win_num = find_winner(user_weapon, comp_weapon)
                 print(result_str)
+                #print(win_num)
                 if win_num == 1:
                     user_score += 1
-                else:
+                    #print(user_score)
+                elif win_num == 2:
                     comp_score += 1
 
-        if menu_int == 2:
-            display_scores()
+        elif menu_int == 2:
+            display_scores(user_score, comp_score)
 main()
