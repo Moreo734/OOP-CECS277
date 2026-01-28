@@ -52,13 +52,14 @@ def main():
     comp_score = 0
     print("blank")
     while menu_int != 3:
-
-        print(""" RPS Menu:
+        menu_int = check_input.get_int_range(""" RPS Menu:
         1. Play game
         2. Show Score
         3. Quit
-        """)
-        menu_int = check_input.get_int_range( low = 1, high =3)
+        """,
+        low = 1,
+        high =3)
+
         if menu_int == 1:
             user_weapon = weapon_menu()
             if user_weapon != "B":
