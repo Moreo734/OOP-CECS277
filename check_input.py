@@ -60,7 +60,7 @@ def get_positive_int(prompt):
   return val  
 
 
-def get_int_range(prompt = "", low = 1, high = 2):
+def get_int_range(prompt,low, high):
   """Repeatedly takes in and validates user's input to ensure that it is an integer within the specified range.
   Args:
     prompt: string to display to the user to prompt them to enter an input.
